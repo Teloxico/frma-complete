@@ -1,0 +1,18 @@
+import os
+
+def print_tree(startpath):
+    for root, dirs, files in os.walk(startpath):
+        # Determine the nesting level of the current directory
+        level = root.replace(startpath, '').count(os.sep)
+        indent = ' ' * 4 * level
+        # Print the directory name
+        print(f"{indent}{os.path.basename(root)}/")
+        # Print the file names within the current directory
+        subindent = ' ' * 4 * (level + 1)
+        for f in files:
+            print(f"{subindent}{f}")
+
+if __name__ == "__main__":
+    # Replace '.' with the path you want to explore
+    path_to_explore = input()
+    print_tree(path_to_explore)

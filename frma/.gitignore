@@ -1,0 +1,74 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.swiftpm/ # Keep if using Swift Package Manager, otherwise optional
+migrate_working_dir/
+
+# IntelliJ & VSCode related
+*.iml
+*.ipr
+*.iws
+.idea/
+# Comment out .vscode/ if you want to commit VS Code settings
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/ # Covers .build/ and build/
+
+# Symbolication & Obfuscation Maps (Generally good to ignore)
+app.*.symbols
+app.*.map.json
+
+# iOS/macOS Generated Files
+/ios/Pods/
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.podspec
+/ios/.symlinks/
+/ios/Flutter/Generated.xcconfig
+/ios/Runner/GeneratedPluginRegistrant.*
+/ios/Flutter/flutter_export_environment.sh
+/macos/Flutter/GeneratedPluginRegistrant.swift
+/macos/Flutter/ephemeral
+/macos/.symlinks/
+/macos/Pods/
+
+# Android Generated Files
+/android/.gradle/
+/android/captures/
+/android/gradlew # Often included, but can be ignored if everyone uses flutter doctor
+/android/gradlew.bat # Same as above
+/android/local.properties # Contains machine-specific paths
+/android/key.properties # Contains sensitive signing keys
+/android/.idea/
+# Android Studio build outputs (Your existing ones are good)
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+# Note: GeneratedPluginRegistrant.java is often generated inside .dart_tool now
+
+# Web Generated Files (if applicable)
+/web/build/
+
+# Sensitive Files (Add any files containing API keys, secrets, etc.)
+# Example:
+# secrets.json
+# .env
+
+# User-specific files (like collected content)
+collected_project_content.txt
+# Add other temporary or collected files you don't want in git

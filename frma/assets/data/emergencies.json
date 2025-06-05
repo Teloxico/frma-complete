@@ -1,0 +1,947 @@
+{
+  "emergencies": [
+    {
+      "id": "heart_attack",
+      "title": "Heart Attack",
+      "description": "A heart attack occurs when blood flow to part of the heart is blocked, causing damage to heart muscle.",
+      "color": "#D32F2F",
+      "icon": "favorite",
+      "highPriority": true,
+      "dos": [
+        "Call emergency services immediately (e.g., 112/108 in India).",
+        "Help the person sit down, rest, and stay calm.",
+        "Loosen any tight clothing.",
+        "Give one adult aspirin (300mg) to chew slowly, ONLY if not allergic and instructed by emergency services.",
+        "Be prepared to perform CPR if the person becomes unconscious and stops breathing."
+      ],
+      "donts": [
+        "Do not leave the person alone, except to call for help if necessary.",
+        "Do not let the person deny symptoms or delay calling for help.",
+        "Do not give the person anything to eat or drink unless advised.",
+        "Do not allow the person to walk around.",
+        "Do not administer nitroglycerin unless it's prescribed to the person and you're instructed to."
+      ],
+      "questions": [
+        {
+          "id": "chest_pain_severity",
+          "text": "On a scale of 1 to 10, how severe is the chest pain/discomfort?",
+          "description": "1 = mild, 10 = excruciating",
+          "type": "slider",
+          "min": 1,
+          "max": 10,
+          "defaultValue": 5
+        },
+        {
+          "id": "pain_description",
+          "text": "How would you describe the chest feeling?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Pressure/Squeezing/Tightness", "value": "pressure"},
+             {"text": "Sharp/Stabbing", "value": "sharp"},
+             {"text": "Aching/Dull", "value": "dull"},
+             {"text": "Burning", "value": "burning"},
+             {"text": "Other/Unsure", "value": "other"}
+          ]
+        },
+        {
+          "id": "pain_location",
+          "text": "Does the pain radiate to the arms, neck, jaw, or back?",
+          "type": "boolean"
+        },
+        {
+          "id": "other_symptoms_ha",
+          "text": "Are there other symptoms like shortness of breath, nausea, sweating, or dizziness?",
+          "type": "boolean"
+        },
+        {
+          "id": "known_heart_condition_ha",
+          "text": "Does the person have a known history of heart problems?",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "stroke",
+      "title": "Stroke",
+      "description": "A stroke occurs when blood supply to part of the brain is interrupted or reduced, preventing brain tissue from getting oxygen.",
+      "color": "#E64A19",
+      "icon": "psychology",
+      "highPriority": true,
+      "dos": [
+        "Call emergency services immediately. Time is critical!",
+        "Note the exact time the first symptoms appeared.",
+        "Keep the person comfortable and safe from falls.",
+        "If unconscious and breathing, place them in the recovery position (on their side).",
+        "Reassure the person while waiting for help."
+      ],
+      "donts": [
+        "Do not give the person anything to eat or drink.",
+        "Do not give any medication (especially aspirin, as some strokes are caused by bleeding).",
+        "Do not delay calling for help, even if symptoms seem to improve.",
+        "Do not let the person fall asleep if they seem drowsy.",
+        "Do not assume the person is just confused or intoxicated."
+      ],
+      "questions": [
+        {
+          "id": "facial_drooping",
+          "text": "Ask the person to smile. Does one side of the face droop?",
+          "type": "boolean"
+        },
+        {
+          "id": "arm_weakness",
+          "text": "Ask the person to raise both arms. Does one arm drift downward or seem weak?",
+          "type": "boolean"
+        },
+        {
+          "id": "speech_difficulty",
+          "text": "Ask the person to repeat a simple phrase (e.g., 'The sky is blue'). Is speech slurred or strange?",
+          "type": "boolean"
+        },
+        {
+          "id": "symptom_onset_time",
+          "text": "When did the first symptom appear? (Estimate if unsure)",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Within the last hour", "value": "within_1_hour"},
+             {"text": "1-3 hours ago", "value": "1_3_hours"},
+             {"text": "More than 3 hours ago", "value": "over_3_hours"},
+             {"text": "Don't know", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "severe_headache",
+          "text": "Did the person experience a sudden, severe headache before other symptoms?",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "severe_bleeding",
+      "title": "Severe Bleeding",
+      "description": "Significant blood loss that is difficult to control and can be life-threatening.",
+      "color": "#C62828", 
+      "icon": "bloodtype",
+      "highPriority": true,
+      "dos": [
+        "Call emergency services immediately.",
+        "Apply firm, direct pressure to the wound using a clean cloth or hands (use gloves if possible).",
+        "If possible, elevate the bleeding part above the level of the heart.",
+        "Maintain pressure until help arrives.",
+        "Keep the person warm and lying down if possible to prevent shock."
+      ],
+      "donts": [
+        "Do not remove gauze or pads if they become soaked with blood; apply more on top.",
+        "Do not remove large or deeply embedded objects from the wound.",
+        "Do not apply a tourniquet unless trained and it's a life-threatening limb bleed.",
+        "Do not wash a severely bleeding wound.",
+        "Do not give the person anything to eat or drink."
+      ],
+      "questions": [
+         {
+          "id": "bleeding_source",
+          "text": "Where is the bleeding coming from?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Limb (Arm/Leg)", "value": "limb"},
+             {"text": "Head/Neck", "value": "head_neck"},
+             {"text": "Torso (Chest/Abdomen/Back)", "value": "torso"},
+             {"text": "Multiple places", "value": "multiple"}
+           ]
+        },
+        {
+          "id": "bleeding_type",
+          "text": "Is the blood spurting (arterial) or flowing steadily (venous)?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Spurting", "value": "spurting"},
+             {"text": "Flowing steadily", "value": "flowing"},
+             {"text": "Oozing", "value": "oozing"},
+             {"text": "Unsure", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "pressure_applied",
+          "text": "Is direct pressure currently being applied to the wound?",
+          "type": "boolean"
+        },
+        {
+          "id": "object_in_wound",
+          "text": "Is there an object stuck in the wound?",
+          "type": "boolean"
+        },
+        {
+          "id": "conscious_bleeding",
+          "text": "Is the person conscious and alert?",
+          "type": "boolean"
+        }
+      ]
+    },
+     {
+      "id": "unconscious",
+      "title": "Unconscious Person",
+      "description": "An unconscious person is unable to respond to stimuli and requires immediate assessment and emergency care.",
+      "color": "#6A1B9A",
+      "icon": "airline_seat_flat_angled",
+      "highPriority": true,
+      "dos": [
+        "Check for danger to yourself and the casualty.",
+        "Check for response (shout name, gently shake shoulders).",
+        "Shout for help and call emergency services immediately.",
+        "Open the airway (head-tilt/chin-lift) and check for normal breathing (look, listen, feel for up to 10 seconds).",
+        "If breathing normally, place in the recovery position. If not breathing normally, start CPR."
+      ],
+      "donts": [
+        "Do not assume the person is just sleeping.",
+        "Do not put anything in their mouth (risk of choking).",
+        "Do not splash water on their face.",
+        "Do not move them unless they are in immediate danger.",
+        "Do not leave the person alone once emergency services are called."
+      ],
+      "questions": [
+        {
+          "id": "breathing_unconscious",
+          "text": "After opening the airway, is the person breathing normally (more than occasional gasps)?",
+          "type": "boolean"
+        },
+        {
+          "id": "cause_known",
+          "text": "Did you witness what caused the person to become unconscious (e.g., fall, seizure, other)?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Yes - Fall/Injury", "value": "injury"},
+             {"text": "Yes - Seizure", "value": "seizure"},
+             {"text": "Yes - Other known reason", "value": "other"},
+             {"text": "No / Unknown", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "obvious_injury",
+          "text": "Are there any obvious signs of severe injury (e.g., major bleeding, deformity)?",
+          "type": "boolean"
+        },
+        {
+            "id": "duration_unconscious",
+            "text": "How long has the person been unconscious? (Estimate)",
+            "type": "multiple_choice",
+            "options": [
+                {"text": "Just happened / < 1 min", "value": "lt_1_min"},
+                {"text": "1-5 minutes", "value": "1_5_min"},
+                {"text": "More than 5 minutes", "value": "gt_5_min"},
+                {"text": "Unknown", "value": "unknown"}
+            ]
+        },
+        {
+            "id": "environment_safe",
+            "text": "Is the immediate environment safe (e.g., no traffic, fire, fumes)?",
+            "type": "boolean"
+        }
+      ]
+    },
+     {
+      "id": "poisoning",
+      "title": "Poisoning",
+      "description": "Poisoning occurs when a harmful substance is ingested, inhaled, injected, or absorbed through the skin.",
+      "color": "#4A148C", 
+      "icon": "science", 
+      "highPriority": true,
+      "dos": [
+        "Call emergency services or poison control immediately. Have substance information ready.",
+        "If the person is unconscious or having trouble breathing, call emergency services first.",
+        "Try to identify the poison (container, substance).",
+        "Follow dispatcher/poison control instructions precisely.",
+        "If safe, remove contaminated clothing and rinse skin/eyes with water if exposed."
+      ],
+      "donts": [
+        "Do not induce vomiting unless specifically told to by poison control or emergency services.",
+        "Do not give activated charcoal unless instructed.",
+        "Do not give anything by mouth (milk, water) unless instructed.",
+        "Do not wait for symptoms to appear if poisoning is suspected.",
+        "Do not try to neutralize acids or alkalis with other substances."
+      ],
+      "questions": [
+        {
+          "id": "poison_type",
+          "text": "What type of substance was involved (e.g., medication, chemical, plant)?",
+          "type": "text"
+        },
+        {
+          "id": "poison_route",
+          "text": "How was the person exposed?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Swallowed (Ingested)", "value": "ingested"},
+             {"text": "Breathed in (Inhaled)", "value": "inhaled"},
+             {"text": "On Skin (Absorbed)", "value": "absorbed"},
+             {"text": "Injected", "value": "injected"},
+             {"text": "Unknown", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "person_state_poison",
+          "text": "Is the person conscious and alert?",
+          "type": "boolean"
+        },
+        {
+          "id": "poison_time",
+          "text": "Approximately when did the exposure happen?",
+          "type": "text",
+          "description": "e.g., 10 minutes ago, 1 hour ago, Unknown"
+        },
+        {
+            "id": "symptoms_poison",
+            "text": "Are there any obvious symptoms (e.g., vomiting, burns, drowsiness, difficulty breathing)?",
+            "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "burns", 
+      "title": "Severe Burns",
+      "description": "Burns involving deep layers of skin, large areas, or sensitive locations (face, hands, genitals, joints).",
+      "color": "#EF6C00", 
+      "icon": "local_fire_department",
+      "highPriority": true,
+      "dos": [
+        "Call emergency services immediately.",
+        "Ensure the source of the burn is stopped and the area is safe.",
+        "Cool the burn with cool (not cold) running water for at least 10-20 minutes.",
+        "Cover the burn loosely with sterile, non-stick dressing or clean plastic wrap.",
+        "Keep the person warm."
+      ],
+      "donts": [
+        "Do not apply ice, butter, creams, or ointments to severe burns.",
+        "Do not break blisters.",
+        "Do not remove clothing that is stuck to the burn.",
+        "Do not immerse large severe burns in cold water (risk of hypothermia).",
+        "Do not delay calling for help."
+      ],
+      "questions": [
+        {
+          "id": "burn_cause",
+          "text": "What caused the burn?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Fire/Flame", "value": "fire"},
+             {"text": "Hot Liquid/Steam (Scald)", "value": "scald"},
+             {"text": "Electrical", "value": "electrical"},
+             {"text": "Chemical", "value": "chemical"},
+             {"text": "Sun/Radiation", "value": "radiation"},
+             {"text": "Friction", "value": "friction"}
+           ]
+        },
+        {
+          "id": "burn_area",
+          "text": "Roughly how large is the burned area (e.g., size of person's palm, larger)?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Smaller than palm", "value": "small"},
+             {"text": "About one palm size", "value": "palm"},
+             {"text": "Several palms / Large area", "value": "large"}
+           ]
+        },
+        {
+          "id": "burn_appearance",
+          "text": "What does the burned skin look like?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Red, maybe slight swelling (Superficial)", "value": "superficial"},
+             {"text": "Red, blistered, very painful (Partial thickness)", "value": "partial"},
+             {"text": "White, leathery, charred, possibly numb (Full thickness)", "value": "full"},
+             {"text": "Unsure", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "burn_location",
+          "text": "Is the burn on the face, hands, feet, genitals, or over a major joint?",
+          "type": "boolean"
+        },
+        {
+          "id": "burn_breathing",
+          "text": "Was the person in a fire or enclosed space? Any signs of breathing difficulty?",
+          "type": "boolean"
+        }
+      ]
+    },
+     {
+      "id": "choking",
+      "title": "Choking",
+      "description": "Choking occurs when an object becomes lodged in the throat or windpipe, blocking airflow.",
+      "color": "#E53935",
+      "icon": "no_food",
+      "highPriority": true,
+      "dos": [
+        "Ask 'Are you choking?'. If they can speak or cough strongly, encourage coughing.",
+        "If they cannot speak, cough, or breathe, stand behind them and give 5 sharp back blows between the shoulder blades.",
+        "If back blows fail, perform 5 abdominal thrusts (Heimlich maneuver).",
+        "Alternate 5 back blows and 5 abdominal thrusts.",
+        "If they become unconscious, call emergency services immediately and start CPR, checking the mouth for obstructions before rescue breaths."
+      ],
+      "donts": [
+        "Do not panic; act quickly.",
+        "Do not put your fingers in their mouth unless you can clearly see and easily remove the object (risk of pushing it further).",
+        "Do not perform abdominal thrusts if the person can cough effectively.",
+        "Do not give water or food.",
+        "Do not stop trying until help arrives or the obstruction is cleared / person starts breathing."
+      ],
+      "questions": [
+        {
+          "id": "can_cough_speak",
+          "text": "Can the person cough forcefully or speak?",
+          "type": "boolean"
+        },
+        {
+          "id": "is_conscious_choking",
+          "text": "Is the person currently conscious?",
+          "type": "boolean"
+        },
+        {
+          "id": "person_type",
+          "text": "Is the person an adult, child, or infant?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Adult / Older Child", "value": "adult_child"},
+             {"text": "Infant (Under 1 year)", "value": "infant"}
+           ],
+           "description": "Technique differs for infants"
+        },
+        {
+          "id": "cause_suspected",
+          "text": "Do you know what they might be choking on (food, small object)?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Food", "value": "food"},
+             {"text": "Object", "value": "object"},
+             {"text": "Unknown", "value": "unknown"}
+           ]
+        },
+        {
+          "id": "color_change",
+          "text": "Is the person's face or lips turning blue?",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis",
+      "title": "Severe Allergic Reaction",
+      "description": "A severe, potentially life-threatening allergic reaction (anaphylaxis) that can occur rapidly.",
+      "color": "#D32F2F", 
+      "icon": "sick", 
+      "highPriority": true,
+      "dos": [
+        "Call emergency services immediately.",
+        "Administer an epinephrine auto-injector (e.g., EpiPen) immediately if available and prescribed.",
+        "Help the person lie down flat. Elevate legs unless breathing is difficult.",
+        "If breathing is difficult, help them sit up.",
+        "Keep them warm."
+      ],
+      "donts": [
+        "Do not wait to see if symptoms improve before calling help or using epinephrine.",
+        "Do not give anything by mouth if they have difficulty swallowing or breathing.",
+        "Do not assume a previous mild reaction means this one will be mild.",
+        "Do not hesitate to give a second epinephrine dose after 5-15 minutes if symptoms persist/return and help hasn't arrived.",
+        "Do not let the person stand up or walk suddenly."
+      ],
+      "questions": [
+        {
+          "id": "breathing_ana",
+          "text": "Is there difficulty breathing, wheezing, or throat tightness?",
+          "type": "boolean"
+        },
+        {
+          "id": "swelling_ana",
+          "text": "Is there swelling of the face, lips, tongue, or throat?",
+          "type": "boolean"
+        },
+        {
+          "id": "epipen_available",
+          "text": "Does the person have an epinephrine auto-injector (EpiPen)?",
+          "type": "boolean"
+        },
+        {
+           "id": "epipen_used",
+           "text": "If yes, has it been administered?",
+           "type": "boolean",
+           "condition": { "dependsOn": "epipen_available", "equals": true }
+        },
+        {
+          "id": "skin_symptoms",
+          "text": "Are there skin symptoms like widespread hives, rash, or flushing?",
+          "type": "boolean"
+        },
+        {
+          "id": "other_symptoms_ana",
+          "text": "Are there other symptoms like dizziness, collapse, vomiting, or abdominal pain?",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "head_injury",
+      "title": "Head Injury",
+      "description": "Injury to the scalp, skull, or brain. Can range from mild bumps to severe traumatic brain injuries.",
+      "color": "#303F9F", 
+      "icon": "sports_mma", 
+      "highPriority": false,
+      "dos": [
+        "Call emergency services for any loss of consciousness, severe headache, vomiting, seizure, or confusion.",
+        "Keep the person still, especially the head and neck if spinal injury is suspected.",
+        "Apply a cold compress to bumps or bruises.",
+        "Control any scalp bleeding with direct pressure.",
+        "Monitor level of consciousness and breathing."
+      ],
+      "donts": [
+        "Do not move the person if a neck or spine injury is possible, unless they are in immediate danger.",
+        "Do not shake someone who has had a head injury.",
+        "Do not clean a deep head wound.",
+        "Do not remove any object penetrating the skull.",
+        "Do not give medication (like aspirin) without medical advice."
+      ],
+      "questions": [
+        {
+          "id": "loc_head",
+          "text": "Did the person lose consciousness, even briefly?",
+          "type": "boolean"
+        },
+        {
+          "id": "headache_severity",
+          "text": "Is there a headache? If so, how severe (1-10)?",
+          "type": "slider",
+          "min": 0, "max": 10, "defaultValue": 0,
+          "description": "0 = none, 10 = worst ever"
+        },
+        {
+          "id": "vomiting_head",
+          "text": "Has the person vomited since the injury?",
+          "type": "boolean"
+        },
+        {
+          "id": "confusion_amnesia",
+          "text": "Is the person confused, drowsy, or unable to remember the event?",
+          "type": "boolean"
+        },
+        {
+          "id": "seizure_head",
+          "text": "Did the person have a seizure after the injury?",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "seizure",
+      "title": "Seizure",
+      "description": "Sudden, uncontrolled electrical disturbance in the brain, causing changes in behavior, movements, or consciousness.",
+      "color": "#7B1FA2", 
+      "icon": "bolt", 
+      "highPriority": false,
+      "dos": [
+        "Protect the person from injury: ease them to the floor, clear the area of hard/sharp objects.",
+        "Place something soft under their head.",
+        "Turn them gently onto one side (recovery position) once shaking stops, to help breathing.",
+        "Time the seizure.",
+        "Stay with them and speak calmly until they are fully recovered."
+      ],
+      "donts": [
+        "Do not try to restrain the person or hold them down.",
+        "Do not put anything in their mouth.",
+        "Do not give mouth-to-mouth resuscitation (they usually start breathing again on their own).",
+        "Do not offer food or drink until fully alert.",
+        "Do not assume they are okay immediately after the seizure stops; confusion is common."
+      ],
+      "questions": [
+        {
+          "id": "seizure_duration",
+          "text": "How long did the seizure last (in minutes)?",
+          "type": "slider",
+          "min": 0, "max": 10, "defaultValue": 1,
+          "description": "Estimate if unsure"
+        },
+        {
+          "id": "first_seizure",
+          "text": "Is this the person's first known seizure?",
+          "type": "boolean"
+        },
+        {
+          "id": "injury_during_seizure",
+          "text": "Did the person sustain any injury during the seizure?",
+          "type": "boolean"
+        },
+        {
+          "id": "multiple_seizures",
+          "text": "Has the person had more than one seizure without recovering in between?",
+          "type": "boolean"
+        },
+        {
+          "id": "recovery_state",
+          "text": "How is the person now (after the shaking stopped)?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Alert / Recovering", "value": "recovering"},
+             {"text": "Confused / Drowsy", "value": "confused"},
+             {"text": "Still Unconscious", "value": "unconscious"},
+             {"text": "Difficulty Breathing", "value": "breathing_issue"}
+           ]
+        }
+      ]
+    },
+     {
+      "id": "minor_burns",
+      "title": "Minor Burns",
+      "description": "Superficial burns (like sunburn) or small partial-thickness burns (blisters) affecting a limited area.",
+      "color": "#FB8C00", 
+      "icon": "whatshot",
+      "highPriority": false,
+      "dos": [
+        "Cool the burn under cool (not cold) running water for 10-20 minutes.",
+        "Remove jewelry or tight items from the burned area gently and quickly.",
+        "Cover the burn loosely with a sterile non-stick dressing or clean plastic wrap.",
+        "Take over-the-counter pain relievers if needed.",
+        "Keep the area clean."
+      ],
+      "donts": [
+        "Do not use ice or iced water (can cause more damage).",
+        "Do not apply butter, oils, creams, or ointments (can trap heat and increase infection risk).",
+        "Do not break blisters (increases infection risk).",
+        "Do not use fluffy cotton wool dressing (can stick to burn).",
+        "Do not underestimate burns on children or the elderly; seek advice if unsure."
+      ],
+      "questions": [
+        {
+          "id": "burn_size_minor",
+          "text": "How large is the burned area?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Smaller than a coin", "value": "coin"},
+             {"text": "Smaller than the person's palm", "value": "palm"},
+             {"text": "Larger than the person's palm", "value": "large"}
+           ]
+        },
+        {
+          "id": "blistering_minor",
+          "text": "Are there blisters forming on the burn?",
+          "type": "boolean"
+        },
+        {
+          "id": "location_minor",
+          "text": "Is the burn on the face, hands, feet, genitals, or over a joint?",
+          "type": "boolean"
+        },
+        {
+          "id": "pain_level_minor",
+          "text": "How much pain is the person experiencing (1-10)?",
+           "type": "slider",
+           "min": 1, "max": 10, "defaultValue": 3
+        },
+        {
+          "id": "cause_minor",
+          "text": "What caused the burn (e.g., hot water, sun, surface)?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "heat_exhaustion",
+      "title": "Heat Exhaustion",
+      "description": "Body overheating due to prolonged exposure to high temperatures or physical exertion, often with dehydration.",
+      "color": "#F57C00", 
+      "icon": "thermostat",
+      "highPriority": false, 
+      "dos": [
+        "Move the person to a cooler place, preferably shaded or air-conditioned.",
+        "Loosen or remove excess clothing.",
+        "Offer sips of cool water or sports drinks (if conscious and able to swallow).",
+        "Cool the skin with cool water (spray, sponge bath, wet cloths).",
+        "Monitor symptoms; seek medical help if they worsen or don't improve within an hour, or if heatstroke is suspected."
+      ],
+      "donts": [
+        "Do not give drinks containing caffeine or alcohol.",
+        "Do not rely solely on fans; evaporative cooling (wet skin) is more effective.",
+        "Do not underestimate symptoms; heat exhaustion can quickly become heatstroke.",
+        "Do not rush the person back into strenuous activity.",
+        "Do not give salt tablets."
+      ],
+      "questions": [
+        {
+          "id": "symptoms_heat",
+          "text": "Which symptoms are present?",
+          "type": "multiple_choice",
+           "options": [
+             {"text": "Heavy Sweating", "value": "sweating"},
+             {"text": "Dizziness / Faintness", "value": "dizzy"},
+             {"text": "Muscle Cramps", "value": "cramps"},
+             {"text": "Headache", "value": "headache"},
+             {"text": "Nausea / Vomiting", "value": "nausea"}
+           ],
+           "description": "Select all that apply (conceptually)"
+        },
+        {
+          "id": "skin_temp_heat",
+          "text": "What does the person's skin feel like?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Cool and clammy", "value": "clammy"},
+             {"text": "Hot and dry (Potential Heatstroke!)", "value": "hot_dry"},
+             {"text": "Normal", "value": "normal"}
+           ]
+        },
+        {
+          "id": "mental_state_heat",
+          "text": "Is the person alert and oriented, or confused/irritable?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Alert and Oriented", "value": "alert"},
+             {"text": "Confused / Irritable", "value": "confused"},
+             {"text": "Unconscious (Call Emergency!)", "value": "unconscious"}
+           ]
+        },
+        {
+          "id": "activity_level_heat",
+          "text": "Was the person engaged in strenuous activity in the heat?",
+          "type": "boolean"
+        },
+         {
+          "id": "improvement_heat",
+          "text": "After moving to cool area and drinking fluids, are symptoms improving?",
+          "type": "boolean"
+        }
+      ]
+    },
+     {
+      "id": "frostbite",
+      "title": "Frostbite",
+      "description": "Injury caused by freezing of the skin and underlying tissues. Most common on fingers, toes, nose, ears, cheeks, and chin.",
+      "color": "#03A9F4", 
+      "icon": "ac_unit",
+      "highPriority": false, 
+      "dos": [
+        "Move the person to a warmer place as soon as possible.",
+        "Remove wet clothing and gently cover the area with dry, sterile dressings.",
+        "Warm the affected area gradually using body heat (e.g., underarms) or warm water (NOT hot).",
+        "Offer warm, non-alcoholic drinks.",
+        "Seek medical attention, especially if skin is hard, numb, or blisters develop."
+      ],
+      "donts": [
+        "Do not rub the frostbitten area (can cause more tissue damage).",
+        "Do not use direct heat like heating pads, fires, or radiators (can burn numb skin).",
+        "Do not break blisters if they form.",
+        "Do not re-freeze the area once thawed.",
+        "Do not give alcohol or allow smoking (can impair circulation)."
+      ],
+      "questions": [
+        {
+          "id": "frostbite_location",
+          "text": "Which body parts are affected?",
+           "type": "multiple_choice", 
+           "options": [
+             {"text": "Fingers/Hands", "value": "hands"},
+             {"text": "Toes/Feet", "value": "feet"},
+             {"text": "Nose", "value": "nose"},
+             {"text": "Ears", "value": "ears"},
+             {"text": "Cheeks/Chin", "value": "face"}
+           ]
+        },
+        {
+          "id": "skin_appearance_frostbite",
+          "text": "What does the affected skin look/feel like?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Red and painful (Frostnip)", "value": "frostnip"},
+             {"text": "White/Grayish, numb, firm/waxy", "value": "superficial"},
+             {"text": "Hard, numb, possibly blistering or blackening", "value": "deep"}
+           ]
+        },
+         {
+          "id": "rewarming_attempted",
+          "text": "Has rewarming been attempted?",
+          "type": "boolean"
+        },
+        {
+          "id": "pain_sensation_frostbite",
+          "text": "Does the person feel pain or numbness in the area?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Painful", "value": "pain"},
+             {"text": "Numb", "value": "numb"},
+             {"text": "Both/Alternating", "value": "both"}
+           ]
+        },
+        {
+          "id": "exposure_duration_frostbite",
+          "text": "How long was the person exposed to the cold?",
+          "type": "text",
+          "description": "e.g., 30 minutes, 2 hours, Unknown"
+        }
+      ]
+    },
+     {
+      "id": "sprain",
+      "title": "Sprain or Strain",
+      "description": "Sprain: Stretching or tearing of ligaments. Strain: Stretching or tearing of muscle or tendon.",
+      "color": "#388E3C", 
+      "icon": "accessibility_new",
+      "highPriority": false,
+      "dos": [
+        "Follow R.I.C.E: Rest, Ice (20 mins on/off), Compression (bandage), Elevation.",
+        "Use cold packs wrapped in a thin towel.",
+        "Support the injured area (sling, crutches if needed).",
+        "Take over-the-counter pain relievers if necessary.",
+        "Seek medical advice if pain is severe, unable to bear weight, or doesn't improve."
+      ],
+      "donts": [
+        "Do not apply heat immediately after the injury.",
+        "Do not bear weight on a severely injured limb.",
+        "Do not ignore persistent pain or swelling.",
+        "Avoid tight compression that cuts off circulation.",
+        "Do not return to activity too soon."
+      ],
+      "questions": [
+        {
+          "id": "injury_location_sprain",
+          "text": "Which joint or muscle is injured?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Ankle", "value": "ankle"},
+             {"text": "Knee", "value": "knee"},
+             {"text": "Wrist", "value": "wrist"},
+             {"text": "Back", "value": "back"},
+             {"text": "Other", "value": "other"}
+           ]
+        },
+        {
+          "id": "can_bear_weight",
+          "text": "Can the person put weight on the injured limb?",
+          "type": "boolean"
+        },
+         {
+          "id": "swelling_bruising",
+          "text": "Is there significant swelling or bruising?",
+          "type": "boolean"
+        },
+         {
+          "id": "pop_sound",
+          "text": "Did the person hear or feel a 'pop' at the time of injury?",
+          "type": "boolean"
+        },
+        {
+          "id": "pain_level_sprain",
+          "text": "Rate the pain level (1-10)",
+          "type": "slider", "min": 1, "max": 10, "defaultValue": 4
+        }
+      ]
+    },
+     {
+      "id": "snake_bite",
+      "title": "Snake Bite",
+      "description": "A bite from a snake, which may or may not be venomous. Requires prompt attention.",
+      "color": "#5D4037", 
+      "icon": "pest_control",
+      "highPriority": false, 
+      "dos": [
+        "Call emergency services immediately.",
+        "Keep the person calm and still.",
+        "Position the bite area below the level of the heart if possible.",
+        "Remove tight clothing or jewelry near the bite.",
+        "Try to remember the snake's appearance if seen safely."
+      ],
+      "donts": [
+        "Do not apply a tourniquet.",
+        "Do not cut the wound or attempt to suck out venom.",
+        "Do not apply ice or heat to the bite.",
+        "Do not give alcohol or caffeine.",
+        "Do not let the person walk around; keep them as still as possible."
+      ],
+      "questions": [
+         {
+          "id": "snake_seen",
+          "text": "Was the snake seen? Can you describe it (color, pattern, head shape)?",
+          "type": "text"
+        },
+        {
+          "id": "bite_location_snake",
+          "text": "Where on the body is the bite located?",
+          "type": "text"
+        },
+        {
+          "id": "symptoms_snake",
+          "text": "What symptoms are present near the bite or elsewhere?",
+          "type": "multiple_choice", 
+           "options": [
+             {"text": "Pain/Swelling at bite", "value": "local_pain"},
+             {"text": "Nausea/Vomiting", "value": "nausea"},
+             {"text": "Dizziness/Weakness", "value": "dizzy"},
+             {"text": "Difficulty Breathing", "value": "breathing"},
+             {"text": "Numbness/Tingling", "value": "numbness"},
+             {"text": "None yet", "value": "none"}
+           ]
+        },
+         {
+          "id": "bite_time",
+          "text": "How long ago did the bite occur?",
+          "type": "text",
+          "description": "e.g., 5 minutes, 1 hour, Unknown"
+        },
+        {
+          "id": "allergy_snake",
+          "text": "Does the person have any known allergies?",
+          "type": "boolean"
+        }
+      ]
+    },
+     {
+      "id": "eye_injury",
+      "title": "Eye Injury",
+      "description": "Injury to the eye, ranging from scratches and foreign objects to chemical splashes or impact trauma.",
+      "color": "#00838F", 
+      "icon": "visibility_off", 
+      "highPriority": false, 
+      "dos": [
+        "For chemical splashes, flush the eye immediately with clean water for 15-20 minutes.",
+        "For small particles (dust, eyelash), try blinking or gently flushing with water.",
+        "For cuts or embedded objects, cover the eye loosely with a sterile pad or eye shield/cup.",
+        "Seek immediate medical attention for significant pain, vision changes, chemicals, cuts, or embedded objects.",
+        "Keep the person calm."
+      ],
+      "donts": [
+        "Do not rub the eye.",
+        "Do not try to remove an embedded object.",
+        "Do not apply pressure to the injured eye.",
+        "Do not put medication or ointments in the eye unless prescribed.",
+        "Do not delay seeking medical help for serious eye injuries."
+      ],
+      "questions": [
+         {
+          "id": "injury_type_eye",
+          "text": "What type of injury occurred?",
+           "type": "multiple_choice",
+           "options": [
+             {"text": "Chemical Splash", "value": "chemical"},
+             {"text": "Object Hit Eye (Blunt)", "value": "blunt"},
+             {"text": "Object Penetrated Eye", "value": "penetrating"},
+             {"text": "Scratch / Foreign Body", "value": "scratch"},
+             {"text": "Unknown", "value": "unknown"}
+           ]
+        },
+         {
+          "id": "vision_change_eye",
+          "text": "Is there any change in vision (blurriness, double vision, loss of vision)?",
+          "type": "boolean"
+        },
+        {
+          "id": "pain_level_eye",
+          "text": "Rate the pain level (1-10)",
+           "type": "slider", "min": 1, "max": 10, "defaultValue": 3
+        },
+        {
+          "id": "bleeding_eye",
+          "text": "Is there any visible bleeding from the eye itself?",
+          "type": "boolean"
+        },
+        {
+          "id": "object_stuck_eye",
+          "text": "Is an object currently stuck in the eye?",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

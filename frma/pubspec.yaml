@@ -1,0 +1,63 @@
+name: frma
+description: A Flutter health application with text and voice messaging capabilities.
+publish_to: "none" # Prevent accidental publishing to pub.dev
+
+environment:
+  # Your existing SDK constraint - ensure it's compatible with new package versions
+  sdk: ">=2.19.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations: # Added for localization support if needed later
+    sdk: flutter
+
+  # Core & UI
+  cupertino_icons: ^1.0.2 # Assuming latest, wasn't listed as outdated
+  google_fonts: ^6.1.0   # Assuming latest, wasn't listed as outdated
+  provider: ^6.1.4         # State Management (Updated)
+  intl: ^0.19.0            # Internationalization & Date Formatting (Pinned to SDK requirement)
+  avatar_glow: ^3.0.1      # Updated
+
+  # Device Features & Permissions
+  geolocator: ^13.0.4              # Updated
+  geocoding: ^3.0.0                # Updated (Note: check for breaking changes from 2.x)
+  url_launcher: ^6.2.4             # Assuming latest, wasn't listed as outdated
+  permission_handler: ^12.0.0+1    # Updated
+  flutter_local_notifications: ^19.0.0 # Added previously
+  flutter_tts: ^4.2.2                # Updated
+  flutter_timezone: ^4.1.0                # Updated
+  crypto : ^3.0.0
+
+  # Networking & Data
+  http: ^1.2.0                       # Assuming latest, wasn't listed as outdated
+  shared_preferences: ^2.5.3       # Updated
+  flutter_secure_storage: ^9.0.0   # Assuming latest, wasn't listed as outdated
+
+  # UI Enhancements & Utilities
+  cached_network_image: ^3.4.1     # Updated
+  flutter_svg: ^2.0.17               # Updated
+  fl_chart: ^0.70.2                  # Updated
+  lottie: ^3.3.1                   # Updated previously
+  flutter_datetime_picker_plus: ^2.0.1 # Assuming latest, wasn't listed as outdated
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_lints: ^5.0.0 # Updated
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  # generate: true # Deprecated
+
+  assets:
+    - assets/data/emergencies.json
+    # - assets/fonts/
+
+flutter_launcher_icons:
+  android: true 
+  ios: true 
+  image_path: "assets/icon/icon.png" 
