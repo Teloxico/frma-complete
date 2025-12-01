@@ -151,6 +151,5 @@ These requirements depend heavily on the chosen model precision (`--precision` f
 * **Model:** The backend uses `ruslanmv/Medical-Llama3-v2`. Loading can take time and significant resources (RAM/VRAM), especially without quantization. See System Requirements.
 * **Security:** The provided server code does not include authentication or authorization. It's suitable for local use but **must be secured** before any production deployment.
 * **CORS:** The server allows requests from `http://localhost` and `http://localhost:8080`. Adjust `allowed_origins` in `server.py` if your Flutter app runs on a different origin during development (e.g., when testing on a physical device).
-* **Error Handling:** Both frontend and backend include basic error handling, but robustness can be improved.
 * **Location:** The app uses `geolocator` and `geocoding` for location services, primarily for emergency number determination and context. Location permissions are required.
-* **Notifications:** The app uses `flutter_local_notifications` but the reminder scheduling logic seems incomplete or commented out in the provided snippets. The setup in `main.dart` initializes the plugin, but actual scheduling needs to be implemented elsewhere.
+* **Inference:** Inference currently only is fully supported in pc, using runpod, it is doable to get AI inference.
